@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import javax.persistence.metamodel.SingularAttribute;
-
-import org.jjly.framework.jpasupport.JpaUtil;
-
 /**
  * 
  * <p>
@@ -34,13 +30,6 @@ public class Order implements Serializable {
 	public Order(String property, Direction direction, String orderExpr) {
 		this.direction = direction;
 		this.property = property;
-		this.orderExpr = orderExpr;
-	}
-
-	public Order(SingularAttribute<?, ?> sa, Direction direction,
-			String orderExpr) {
-		this.direction = direction;
-		this.property = JpaUtil.getJPAColumnNameOfSingularAttribute(sa);
 		this.orderExpr = orderExpr;
 	}
 

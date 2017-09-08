@@ -49,7 +49,7 @@ public class OffsetLimitInterceptor implements Interceptor {
 	static ExecutorService Pool;
 	String dialectClass;
 	boolean asyncTotalCount = false;
-
+	@Override
 	public Object intercept(final Invocation invocation) throws Throwable {
 		final Executor executor = (Executor) invocation.getTarget();
 		final Object[] queryArgs = invocation.getArgs();

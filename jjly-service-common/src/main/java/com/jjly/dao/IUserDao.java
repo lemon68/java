@@ -11,6 +11,5 @@ import java.util.List;
 
 @Repository
 public interface IUserDao {
-
     List<User> selectAllUser();
 }

@@ -14,19 +14,12 @@
 
   <name>jjly-common-util</name>
   <url>http://maven.apache.org</url>
-  <properties>
-    <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
-  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.jjly.common</groupId>
       <artifactId>jjly-common-base</artifactId>
       <version>${jjly-common-base.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
-      <version>${hibernate-jpa.version}</version>
     </dependency>
   </dependencies>
   <build>
