@@ -7,7 +7,7 @@
     <select id="selectAllUser" resultType="user">
         SELECT
         <include refid="basesql"/>
-        FROM user
+        FROM user u
     </select>
 
 </mapper>
