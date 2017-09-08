@@ -1,12 +1,14 @@
-package org.jjly.framework.mybatis.domain;
+package org.jjly.framework.mybatis.paginator.domain;
 
-import javax.persistence.metamodel.SingularAttribute;
-import org.jjly.framework.jpasupport.JpaUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
+
+import javax.persistence.metamodel.SingularAttribute;
+
+import org.jjly.framework.jpasupport.JpaUtil;
 
 /**
  * 

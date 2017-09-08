@@ -37,4 +37,9 @@
 	<typeAliases>
 		<package name="com.jjly.model"/>
 	</typeAliases>
+	<plugins>
+		<plugin interceptor="org.jjly.framework.mybatis.paginator.OffsetLimitInterceptor">
+			<property name="dialectClass" value="org.jjly.framework.mybatis.paginator.dialect.MySQLDialect"/>
+		</plugin>
+	</plugins>
 </configuration>

@@ -18,6 +18,11 @@
           <artifactId>jjly-common-base</artifactId>
           <version>${jjly-common-base.version}</version>
       </dependency>
+      <dependency>
+          <groupId>com.jjly.common</groupId>
+          <artifactId>jjly-common-util</artifactId>
+          <version>${jjly-common-util.version}</version>
+      </dependency>
   </dependencies>
     <build>
         <plugins>

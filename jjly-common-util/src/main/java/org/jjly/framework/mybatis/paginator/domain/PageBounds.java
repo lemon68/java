@@ -1,4 +1,4 @@
-package org.jjly.framework.mybatis.domain;
+package org.jjly.framework.mybatis.paginator.domain;
 
 import org.apache.ibatis.session.RowBounds;
 
