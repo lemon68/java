@@ -1,6 +1,7 @@
 package com.jjly.api.controller;
 
 
+import com.beust.jcommander.internal.Lists;
 import com.jjly.model.User;
 import com.jjly.service.IUserService;
 import org.apache.log4j.Logger;
@@ -29,7 +30,9 @@ public class UserController {
     @RequestMapping("/showUser")
     public String showUser(HttpServletRequest request, Model model){
         log.info("查询所有用户信息");
-        List<User> userList = userService.getAllUser();
+        List<User> userList = Lists.newArrayList();
+        User user=userService.get(Long.parseLong("1"));
+        userList.add(user);
         model.addAttribute("userList",userList);
         return "showUser";
     }

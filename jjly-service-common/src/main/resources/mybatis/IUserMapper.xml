@@ -4,27 +4,27 @@
 
     <select id="selectAllUser" resultType="user">
         SELECT
-        <include refid="basesql"/>
+        <include refid="base_sql"/>
         FROM user u
     </select>
     <!-- 一个vo对应一个sql标签 -->
-    <sql id="basesql">
+    <sql id="base_sql">
         id as id,login_account as loginAccount,login_password as loginPassword,pay_password as payPassword
     </sql>
 
     <!-- 	说明:通过id获取实体信息
         匹配条件: @param id 实体的id
         返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
-    <select id="get" resultType="bank">
+    <select id="get" resultType="user">
         SELECT
         <include refid="base_sql" />
-        FROM dzq_finance_bank WHERE id=#{id}
+        FROM user WHERE id=#{id}
     </select>
     <!-- 说明:单表下通过匹配条件查询数据，
         匹配条件:
         @param queryBuilder 查询条件。
         返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
-    <select id="findAll" resultType="bank">
+    <select id="findAll" resultType="user">
         SELECT
         <include refid="base_sql" />
         FROM user
@@ -49,7 +49,7 @@
         匹配条件:
         @param queryBuilder 查询条件。
         返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
-    <select id="findAllAndPage" resultType="bank">
+    <select id="findAllAndPage" resultType="user">
         SELECT
         <include refid="base_sql" />
         FROM user
@@ -74,7 +74,7 @@
         匹配条件:
         @param queryBuilder 查询条件。
         返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
-    <select id="findAllByQB" parameterType="org.yun.framework.orm.QueryBuilder" resultType="bank">
+    <select id="findAllByQB" parameterType="org.jjly.framework.orm.QueryBuilder" resultType="user">
         SELECT
         <include refid="base_sql" />
         FROM user
@@ -99,7 +99,7 @@
         @param queryBuilder 查询条件。
         @param orders 排序字段的list。如果为空就不生成排序语句
         返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
-    <select id="findAllAndOrder" resultType="bank">
+    <select id="findAllAndOrder" resultType="user">
         SELECT
         <include refid="base_sql" />
         FROM user

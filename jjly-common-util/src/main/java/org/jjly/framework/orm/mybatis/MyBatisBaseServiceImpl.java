@@ -38,41 +38,6 @@ public abstract class MyBatisBaseServiceImpl<T, ID extends Serializable> impleme
 	public static int defSize = 20;
 	
 	protected PageRequest defPageRequest = new PageRequest(defPage, defSize);
-	
-	private Type[] currObjectParameterizedTypes = null;
-
-	private Type[] getGenericsInfo() {
-		if( currObjectParameterizedTypes ==null){
-			Type genType = this.getClass().getGenericSuperclass();
-			 currObjectParameterizedTypes =  ((ParameterizedType) genType).getActualTypeArguments();
-		}
-		return currObjectParameterizedTypes;
-	}
-
-	/**
-	 * <p> 
-	 *	说明：获取泛型t的在运行时的实际类型
-	 *	</p>
-	 * @return 泛型K的Type
-	 * @author 黄乡南
-	 */
-	private Class<T> getTtype() {
-		return (Class<T>) getGenericsInfo()[0];
-	}
-	
-	/**
-	 * <p> 
-	 *	说明：获取jpa元获取泛型k的实际运行类型的class，
-	 *	</p>
-	 * <p>
-	 *  链接：
-	 * </p>
-	 * @return
-	 * @author 黄乡南
-	 */
-	private Class getKtype() {
-		return (Class) getGenericsInfo()[2];
-	}
 
 	/**
 	 * 
@@ -80,7 +45,7 @@ public abstract class MyBatisBaseServiceImpl<T, ID extends Serializable> impleme
 	 *  说明：默认jpa分页PageRequest
 	 * </p>
 	 * @return
-	 * @author 黄乡南
+	 * @author Steven
 	 */
 	public PageRequest getDefPageRequest() {
 		return defPageRequest;
@@ -115,7 +80,6 @@ public abstract class MyBatisBaseServiceImpl<T, ID extends Serializable> impleme
 	@Override
 	public long findByConditionCount(Map<String, Object> map) {
 		List<SearchFilter> searchFilters = SearchFilter.parseToList(map);
-		
 		QueryBuilder q = QueryBuilder.createQB(searchFilters);
 		return getBaseDAO().count(q);
 	}
