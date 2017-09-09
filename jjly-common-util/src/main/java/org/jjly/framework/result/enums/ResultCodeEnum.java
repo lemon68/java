@@ -7,7 +7,7 @@ package org.jjly.framework.result.enums;
  * @Email  zsq.471214943@163.com
  * @Project framework
  * @Author  Steven
- * @Date  2015年3月4日
+ * @Date  2017年09月09日
  */
 
 public enum ResultCodeEnum {

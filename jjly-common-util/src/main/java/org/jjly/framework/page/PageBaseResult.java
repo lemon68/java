@@ -7,11 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Lists;
 
 /**
- * 分页实体
- * @author 黄乡南
- * 
- *
- * @param <T>
+ * <p>分页实体 </p>
+ * @Package org.jjly.framework.page
+ * @author Steven
+ * @e-mail 471214943@qq.com
+ * @date 2017/9/9 11:30
+ * @version V1.0
  */
 public class PageBaseResult<T> implements Serializable{
 	

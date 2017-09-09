@@ -5,12 +5,12 @@ import org.jjly.framework.result.enums.ResultCodeEnum;
 import java.io.Serializable;
 
 /**
- * 
- * @Discription 接口返回值
- * @Email  hxiangnan@126.com
- * @Project framework
- * @Author  黄乡南
- * @Date  2015年3月4日
+ * <p>接口返回值</p>
+ * @Package org.jjly.framework.result.domain
+ * @author Steven
+ * @e-mail 471214943@qq.com
+ * @date 2017/9/9 11:29
+ * @version V1.0
  */
 public class Result<T> implements Serializable
 {

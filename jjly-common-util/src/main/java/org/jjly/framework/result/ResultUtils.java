@@ -13,20 +13,22 @@ import org.jjly.framework.result.enums.ResultCodeEnum;
  * @Date  2015年3月4日
  */
 
-public class ResultBaseUtils
+public class ResultUtils
 {
-	public ResultBaseUtils() {}
+	public ResultUtils() {}
 
 	/**
-	 * 
 	 * <p>
 	 *  说明：返回resultCode=0，参考：
 	 * </p>
-	 * @param msg 错误提示信息
-	 * @return {@link Result} resultCode=0，resultMsg=msg,resultObj=null,sessionId=null
-	 * @author 黄乡南
+	 * <p>
+	 *  链接：{@link Result} resultCode=0，resultMsg=msg,resultObj=null,sessionId=null
+	 * </p>
+	 *  * @param msg 错误提示信息
+	 *  * @return  result
+	 * @auth Steven
 	 */
-	public static<T> Result<T> returnError(String msg)
+	public static Result returnError(String msg)
 	{
 		return returnError(msg,ResultCodeEnum.Error.getCode());
 	}
@@ -39,11 +41,11 @@ public class ResultBaseUtils
 	 * @param msg 提示信息
 	 * @param code 自定义错误返回码，code尽量在10000以上，10000以内的错误返回码为系统保留
 	 * @return {@link Result} resultCode=0，resultMsg=msg,resultObj=null,sessionId=null
-	 * @author 黄乡南
+	 * @author Steven
 	 */
-	public static<T> Result<T> returnError(String msg, Integer code)
+	public static Result returnError(String msg, Integer code)
 	{
-		Result<T> result = new Result<T>();
+		Result result = new Result();
 		result.setResultCode(code);
 		result.setResultMsg(msg);
 		return result;
@@ -56,11 +58,11 @@ public class ResultBaseUtils
 	 * </p>
 	 * @param msg 成功提示信息
 	 * @return {@link Result} resultCode=1，resultMsg=msg,resultObj=null,sessionId=null
-	 * @author 黄乡南
+	 * @author Steven
 	 */
-	public static<T> Result<T> returnSuccess(String msg)
+	public static Result returnSuccess(String msg)
 	{
-		return returnSuccess(msg,null,null);
+		 return returnSuccess(msg,null,null);
 	}
 
 	/**
@@ -71,7 +73,7 @@ public class ResultBaseUtils
 	 * @param msg 提示信息
 	 * @param object 业务数据
 	 * @return
-	 * @author 黄乡南
+	 * @author Steven
 	 */
 	public static <T>  Result<T>  returnSuccess(String msg, T object)
 	{
@@ -88,7 +90,7 @@ public class ResultBaseUtils
 	 * @param object 数据
 	 * @param sessionId 当前登录用户的sessionId
 	 * @return {@link Result<T> >
-	 * @author 黄乡南
+	 * @author Steven
 	 */
 	public static <T> Result<T> returnSuccess(String msg, T object, String sessionId)
 	{
