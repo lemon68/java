@@ -7,7 +7,6 @@ import java.util.List;
 import com.google.common.base.CaseFormat;
 import org.jjly.framework.orm.QueryCondition.BooleanOperator;
 import org.jjly.framework.orm.filter.SearchFilter;
-import org.jjly.framework.orm.filter.SearchFilter.Operator;
 
 /**
  * <p>mybatis查询条件创建者 </p>
@@ -62,7 +61,7 @@ public class QueryBuilder{
 		QueryBuilder q = new QueryBuilder();
 		for (SearchFilter searchFilterItem : searchFilter) {
 			String columnName=CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, searchFilterItem.fieldName);;
-			q.and(QueryCondition.create(columnName,Operator.valueOf(searchFilterItem.operator.toString()), searchFilterItem.value));
+			q.and(QueryCondition.create(columnName,OperatorEnum.valueOf(searchFilterItem.operator.toString()), searchFilterItem.value));
 		}
 		return q;
 	}

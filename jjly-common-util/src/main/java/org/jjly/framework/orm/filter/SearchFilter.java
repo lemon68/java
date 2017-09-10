@@ -2,11 +2,15 @@ package org.jjly.framework.orm.filter;
 
 import java.util.List;
 import java.util.Map;
+
+import com.alibaba.druid.sql.ast.SQLPartitionValue;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.jjly.framework.orm.OperatorEnum;
+
 /**
  * 
  * <p>封装查询条件，包含查询字段，字段查询设置值和查询操作（NQ,EQ,LIKE等）</p>
@@ -31,9 +35,9 @@ public class SearchFilter
 	/**
 	 * 查询操作符，确定查询方式是like或=等方式
 	 */
-	public Operator operator;
+	public OperatorEnum operator;
 
-	public SearchFilter(String fieldName, Operator operator, Object value)
+	public SearchFilter(String fieldName, OperatorEnum operator, Object value)
 	{
 		this.fieldName = fieldName;
 		this.value = value;
@@ -70,7 +74,7 @@ public class SearchFilter
 					throw new IllegalArgumentException(key + " is not a valid search filter name");
 
 				String filedName = names[1];
-				Operator operator = Operator.valueOf(names[0]);
+				OperatorEnum operator = OperatorEnum.valueOf(names[0]);
 
 				SearchFilter filter = new SearchFilter(filedName, operator, value);
 				filters.put(key, filter);
@@ -106,7 +110,7 @@ public class SearchFilter
 					throw new IllegalArgumentException(key + " is not a valid search filter name");
 				
 				String filedName = names[1];
-				Operator operator = Operator.valueOf(names[0]);
+				OperatorEnum operator = OperatorEnum.valueOf(names[0]);
 				
 				SearchFilter filter = new SearchFilter(filedName, operator, value);
 				filters.add(filter);
@@ -114,40 +118,5 @@ public class SearchFilter
 		}
 		
 		return filters;
-	}
-
-	/**
-	 * 
-	 * <p>字段的查询的操作符，有like,not like, = ,!= ,>=,<=等待操作 </p>
-	 * @Package org.yun.framework.orm.filter 
-	 * @author 黄乡南
-	 * @email hxiangnan@126.com
-	 * @date 2016-8-15 上午10:32:26 
-	 * @version V1.0
-	 */
-	public static enum Operator {
-		NQ("!="), EQ("="), LIKE("LIKE"), GT(">"), LT("<"), GTE(">="), LTE("<="), LTD("<="), GTD(">="),OR("OR"), NLIKE("NOT LIKE");
-		private Operator(String str){
-			op=str;
-		}
-		private String op;
-		public String getOp() {
-			return op;
-		}
-		public void setOp(String op) {
-			this.op = op;
-		}
-		
-		/**
-		 * <p> 
-		 *	说明：生成查询列名和查询方式用下划线“_”分隔的字符串：如LIKE.op("name")-->"LIEK_name"
-		 *	</p>
-		 * @return 返回查询列名和查询方式用下划线“_”分隔的字符串：如LIKE.op("name")-->"LIEK_name"
-		 * @author 黄乡南
-		 */
-		public String op(String str) {
-			return this.toString()+"_"+str;
-		}
-
 	}
 }

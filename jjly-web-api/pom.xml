@@ -79,6 +79,13 @@
         <directory>src/main/resources/comm</directory>
         <filtering>false</filtering>
       </resource>
+      <resource>
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>rebel.xml</include>
+          </includes>
+          <filtering>false</filtering>
+      </resource>
     </resources>
     <plugins>
       <plugin>

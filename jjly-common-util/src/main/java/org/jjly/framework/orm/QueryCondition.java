@@ -1,7 +1,6 @@
 package org.jjly.framework.orm;
 
 import com.google.common.base.CaseFormat;
-import org.jjly.framework.orm.filter.SearchFilter.Operator;
 
 
 /**
@@ -30,13 +29,13 @@ public class QueryCondition{
 
 	private BooleanOperator booleanOperator;
 	
-	private Operator operator;
+	private OperatorEnum operator;
 
 	private  QueryCondition() {
 		super();
 	}
 	
-	public  static <X,Y> QueryCondition create(String queryFiled,Operator operator,Y value){
+	public  static <X,Y> QueryCondition create(String queryFiled,OperatorEnum operator,Y value){
 		QueryCondition queryCondition = new QueryCondition();
 		queryCondition.setQueryFiled(queryFiled);
 		queryCondition.setOperator(operator);
@@ -76,11 +75,11 @@ public class QueryCondition{
 			return  CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE,queryFiled );
 	}
 
-	public Operator getOperator() {
+	public OperatorEnum getOperator() {
 		return operator;
 	}
 
-	public void setOperator(Operator operator) {
+	public void setOperator(OperatorEnum operator) {
 		this.operator = operator;
 	}
 

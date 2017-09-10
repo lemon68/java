@@ -1,24 +1,16 @@
 package com.jjly.model;
 
 import org.apache.ibatis.type.Alias;
+import org.jjly.framework.orm.LongBaseEntity;
 
 /**
  * Created by helen
  */
 @Alias(value = "user")
-public class User {
-    private String id;
+public class User extends LongBaseEntity{
     private String loginAccount; //用户名
     private String loginPassword;//登录密码
     private String payPassword;//账号密码
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getLoginAccount() {
         return loginAccount;
