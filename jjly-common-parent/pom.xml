@@ -13,6 +13,7 @@
     <jjly-service-common.version>1.0-SNAPSHOT</jjly-service-common.version>
     <jjly-web-api.version>1.0-SNAPSHOT</jjly-web-api.version>
     <jjly-web-cms.version>1.0-SNAPSHOT</jjly-web-cms.version>
+    <jjly-web-crm.version>1.0-SNAPSHOT</jjly-web-crm.version>
     <jjly-common-util.version>1.0-SNAPSHOT</jjly-common-util.version>
   </properties>
   <modules>
@@ -21,6 +22,7 @@
     <module>../jjly-service-common</module>
     <module>../jjly-web-api</module>
     <module>../jjly-web-cms</module>
+    <module>../jjly-web-crm</module>
   </modules>
   <dependencies>
   </dependencies>
