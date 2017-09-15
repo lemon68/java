@@ -21,6 +21,69 @@
       <artifactId>jjly-common-base</artifactId>
       <version>${jjly-common-base.version}</version>
     </dependency>
+
+    <!-- Ping++ -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+    </dependency>
+    <!-- Ping++end -->
+
+      <dependency>
+          <groupId>Pingplusplus</groupId>
+          <artifactId>pingpp-java</artifactId>
+          <version>2.2.4</version>
+      </dependency>
+      <!-- youmeng-->
+      <dependency>
+          <groupId>org.json</groupId>
+          <artifactId>json</artifactId>
+          <version>20090211</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.3.5</version>
+      </dependency>
+      <!-- youmengendaaa -->
+
+    <!-- qiniu -->
+    <dependency>
+      <groupId>com.qiniu</groupId>
+      <artifactId>qiniu-java-sdk</artifactId>
+      <version>7.0.8</version>
+    </dependency>
+      <dependency>
+          <groupId>com.qiniu</groupId>
+          <artifactId>pili-sdk-java</artifactId>
+          <version>1.5.1-RELEASE</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>RELEASE</version>
+      </dependency>
+
+      <!-- IM -->
+      <dependency>
+          <groupId>com.easemob</groupId>
+          <artifactId>rest-java-sdk</artifactId>
+          <version>1.0.5</version>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+      </dependency>
+
   </dependencies>
   <build>
     <plugins>
