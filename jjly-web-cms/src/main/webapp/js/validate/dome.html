@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script src="messages_zh.js"></script>
+    <script src="validate-exc.js"></script>
+    <script>
+          function jqValidate()  
+            {  
+                return $( '.validator' ).validate();  
+            }  
+              
+            function submitBtn()  
+            {  
+                 if( jqValidate() ){    
+                     $( '.validator' ).submit();  
+                 }  
+            }  
+    </script>
+    <style>
+        .error {  border: 1px solid red;}
+    </style>
+</head>
+<body>
+    <form method="get" class="cmxform validator" name="cmxform" id="form1" action="">
+        <fieldset>
+            <legend>登录框</legend>
+            <p>
+                <label for="user">用户名</label>
+                <input id="user" name="url" required url="true">
+            </p>
+            <p>
+                <label for="password">密码</label>
+                <input id="password" type="password" maxlength="12" name="password" required minlength="5">
+            </p>
+            <p>
+                <input class="submit" onclick="submitBtn()" type="button" value="Login">
+                <input class="cancel" type="button" value="取消验证">
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

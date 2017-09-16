@@ -1,0 +1,80 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http//www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ajax历史记录</title>
+<meta name="generator" content="editplus" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<style type="text/css">
+a {displayinline-block;margin-right10px;
+	
+}
+
+#clickHistory {border1px solid #406c99;padding15px;margin-top10px;width600px;
+	
+}
+</style>
+</head>
+
+<body>
+
+	<!--[if IE]><iframe id="HISTORY_ADAPTER" src="ajaxhistory.html" style="displaynone"></iframe><![endif]-->
+	<a href="#/1111/kk.html">Test1</a>
+	<a href="#/2222/kk.html">Test2</a>
+	<a href="#/3333/kk.html">Test3</a>
+
+	<div id="clickHistory">I am the #1 ajax container..</div>
+
+	<script type="text/javascript"
+		src="./jquery.historymanager.js"></script>
+
+	<script type="text/javascript">
+        var historyManager = new HistoryManager();
+     
+        historyManager.addListener(function() {
+            var url = arguments[0];
+     
+            alert("当前的改变后的URL：" + url);
+            
+           setHashHistory(url);
+       });
+    
+       document.onclick = function(ev) {
+           ev = ev || window.event;
+           var elem = ev.srcElement || ev.target;
+    
+           if (elem.tagName && elem.tagName.toLowerCase() == "a") {
+               if (ev.preventDefault) {
+                   ev.preventDefault();    
+               } else {
+                   ev.returnValue = false;
+               }
+               
+               var href = elem.getAttribute("href", 2);
+               historyManager.add(href);
+    
+               setHashHistory(href);
+           }
+       }
+    
+       function setHashHistory(_url) {
+           var tid = _url.replace(/[^\/]?\/(\d+)\/(.*)/, "$1");
+           var colorConfig = {
+               '1111' : '#2B6088',
+               '2222' : '#FD1B15',
+               '3333' : '#FF6D06'
+           }
+           
+           var elem = document.getElementById("clickHistory");
+           var html = elem.innerText || elem.contextText;
+    
+           elem.innerHTML = html.replace(/\#(\d+)\s/, "#" + tid + " ");
+           elem.style.backgroundColor = colorConfig[tid];
+       }    
+     
+</script>
+</body>
+</html>
