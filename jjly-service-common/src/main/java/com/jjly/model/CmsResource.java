@@ -1,5 +1,6 @@
 package com.jjly.model;
 
+import org.apache.ibatis.type.Alias;
 import org.jjly.framework.orm.LongBaseEntity;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * @e-mail 47121494@qq.com
  * @date 2017/9/15 11:03
  */
+@Alias("cmsResource")
 public class CmsResource extends LongBaseEntity{
     private String code;
     private String name;

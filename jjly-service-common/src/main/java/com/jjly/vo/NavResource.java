@@ -26,15 +26,15 @@ public class NavResource {
 	/**
 	 * 菜单标识名
 	 */
-	private String resourceName;// 菜单标识名
+	private String code;// 菜单标识名
 	/**
 	 * 菜单名称
 	 */
-	private String despName;// 菜单名称
+	private String name;// 菜单名称
 	/**
 	 * 请求地址
 	 */
-	private String menuUrl;// 请求地址
+	private String url;// 请求地址
 	/**
 	 * 图标地址
 	 */
@@ -44,7 +44,7 @@ public class NavResource {
 
 	private Integer level;
 	
-	private Integer sortNum;
+	private Integer sort;
 
 	private Boolean isHaveParent;
 	
@@ -143,19 +143,19 @@ public class NavResource {
 		return navResource;
 	}
 
-	public NavResource(Long id,Long parentResourceId,String resourceName,String despName, String menuUrl, String iconUrl,
-			Boolean isMenu, Integer level, Integer sortNum,
-			Boolean isHaveParent, Boolean isHaveChild, List<NavResource> sub) {
+	public NavResource(Long id, Long pid, String code, String name, String url, String iconUrl,
+					   Boolean isMenu, Integer level, Integer sort,
+					   Boolean isHaveParent, Boolean isHaveChild, List<NavResource> sub) {
 		super();
 		this.id = id;
-		this.parentResourceId = parentResourceId;
-		this.resourceName = resourceName;
-		this.despName = despName;
-		this.menuUrl = menuUrl;
+		this.parentResourceId = pid;
+		this.code = code;
+		this.name = name;
+		this.url = url;
 		this.iconUrl = iconUrl;
 		this.isMenu = isMenu;
 		this.level = level;
-		this.sortNum = sortNum;
+		this.sort = sort;
 		this.isHaveParent = isHaveParent;
 		this.isHaveChild = isHaveChild;
 		this.sub = sub;
@@ -169,28 +169,28 @@ public class NavResource {
 		this.id = id;
 	}
 
-	public String getResourceName() {
-		return resourceName;
+	public String getCode() {
+		return code;
 	}
 
-	public void setResourceName(String resourceName) {
-		this.resourceName = resourceName;
+	public void setCode(String resourceName) {
+		this.code = code;
 	}
 
-	public String getDespName() {
-		return despName;
+	public String getName() {
+		return name;
 	}
 
-	public void setDespName(String despName) {
-		this.despName = despName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getMenuUrl() {
-		return menuUrl;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setMenuUrl(String menuUrl) {
-		this.menuUrl = menuUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getIconUrl() {
@@ -217,12 +217,12 @@ public class NavResource {
 		this.level = level;
 	}
 
-	public Integer getSortNum() {
-		return sortNum;
+	public Integer getSort() {
+		return sort;
 	}
 
-	public void setSortNum(Integer sortNum) {
-		this.sortNum = sortNum;
+	public void setSort(Integer sort) {
+		this.sort = sort;
 	}
 
 	public Boolean getHaveParent() {

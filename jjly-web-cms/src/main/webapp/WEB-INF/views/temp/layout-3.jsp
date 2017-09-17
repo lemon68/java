@@ -1,3 +1,5 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@include file="/common/taglibs.jsp"%>
 <div class="easyui-layout" data-options="fit:true">
 	<div class="easyui-panel pd5" data-options="fit:true,border:true">
         <p style="font-size:14px">Here is the content loaded via AJAX.</p>

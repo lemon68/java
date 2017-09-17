@@ -40,6 +40,13 @@ public interface ICmsResourceClient {
      */
     public List<NavResource> getResourcesNavByUser(Long userId);
 
-    public List<CmsResource> getResourcesByUser(Long id);
+    public List<CmsResource> getResourcesByUser(Long userId);
 
+    public List<CmsResource> getResourcesByLevel(Integer level);
+
+    public List<CmsResource> getResourcesByParentId(Long parentId);
+
+    public List<NavResource> getNavResourcesByLevel(Integer level);
+
+    public List<NavResource> getNavResourcesByParentId(Long parentId);
 }

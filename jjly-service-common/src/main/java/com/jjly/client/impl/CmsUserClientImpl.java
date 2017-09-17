@@ -3,6 +3,7 @@ package com.jjly.client.impl;
 import com.jjly.client.ICmsUserClient;
 import com.jjly.model.CmsUser;
 import com.jjly.vo.CmsUserVO;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>//TODO(描述该类的功能) </p>
@@ -13,6 +14,7 @@ import com.jjly.vo.CmsUserVO;
  * @e-mail 47121494@qq.com
  * @date 2017/9/15 10:50
  */
+@Service
 public class CmsUserClientImpl implements ICmsUserClient{
     @Override
     public CmsUser getByUserName(String userName) {

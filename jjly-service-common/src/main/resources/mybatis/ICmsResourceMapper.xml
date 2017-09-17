@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jjly.dao.ICmsResourceDao">
+
+    <select id="selectAlljjly_cms_resource" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql"/>
+        FROM jjly_cms_resource
+    </select>
+    <!-- 一个vo对应一个sql标签 -->
+    <sql id="base_sql">
+        id,code,name,url,sort,level,pid,icon_id,is_menu,add_time,mod_time
+    </sql>
+
+    <!-- 	说明:通过id获取实体信息
+        匹配条件: @param id 实体的id
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="get" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql" />
+        FROM jjly_cms_resource WHERE id=#{id}
+    </select>
+    <!-- 说明:单表下通过匹配条件查询数据，
+        匹配条件:
+        @param queryBuilder 查询条件。
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="findAll" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql" />
+        FROM jjly_cms_resource
+        <if test="queryBuilder!=null">
+            <where>
+                <foreach collection="queryBuilder.andList"  item="val" separator="and">
+
+                    <choose>
+                        <when test="val!=null and (val.operator.toString() == 'LIKE' or val.operator.toString()== 'NLIKE')">
+                            ${val.columnName} ${val.operator.op} "%"#{val.value}"%"
+                        </when>
+                        <otherwise>
+                            ${val.columnName} ${val.operator.op} #{val.value}
+                        </otherwise>
+                    </choose>
+
+                </foreach>
+            </where>
+        </if>
+    </select>
+    <!-- 说明:单表下通过匹配条件查询数据，并且可以进行分页和排序操作
+        匹配条件:
+        @param queryBuilder 查询条件。
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="findAllAndPage" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql" />
+        FROM jjly_cms_resource
+        <if test="queryBuilder!=null">
+            <where>
+                <foreach collection="queryBuilder.andList"  item="val" separator="and">
+
+                    <choose>
+                        <when test="val!=null and (val.operator.toString() == 'LIKE' or val.operator.toString()== 'NLIKE')">
+                            ${val.columnName} ${val.operator.op} "%"#{val.value}"%"
+                        </when>
+                        <otherwise>
+                            ${val.columnName} ${val.operator.op} #{val.value}
+                        </otherwise>
+                    </choose>
+
+                </foreach>
+            </where>
+        </if>
+    </select>
+    <!-- 说明:单表下通过匹配条件查询数据
+        匹配条件:
+        @param queryBuilder 查询条件。
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="findAllByQB" parameterType="org.jjly.framework.orm.QueryBuilder" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql" />
+        FROM jjly_cms_resource
+        <if test="queryBuilder!=null">
+            <where>
+                <foreach collection="queryBuilder.andList"  item="val" separator="and">
+
+                    <choose>
+                        <when test="val!=null and (val.operator.toString() == 'LIKE' or val.operator.toString()== 'NLIKE')">
+                            ${val.columnName} ${val.operator.op} "%"#{val.value}"%"
+                        </when>
+                        <otherwise>
+                            ${val.columnName} ${val.operator.op} #{val.value}
+                        </otherwise>
+                    </choose>
+                </foreach>
+            </where>
+        </if>
+    </select>
+    <!-- 说明:单表下通过匹配条件查询数据，并且可以进行排序
+        匹配条件:
+        @param queryBuilder 查询条件。
+        @param orders 排序字段的list。如果为空就不生成排序语句
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="findAllAndOrder" resultType="cmsResource">
+        SELECT
+        <include refid="base_sql" />
+        FROM jjly_cms_resource
+        <if test="queryBuilder!=null">
+            <where>
+                <foreach collection="queryBuilder.andList"  item="val" separator="and">
+
+                    <choose>
+                        <when test="val!=null and (val.operator.toString() == 'LIKE' or val.operator.toString()== 'NLIKE')">
+                            ${val.columnName} ${val.operator.op} "%"#{val.value}"%"
+                        </when>
+                        <otherwise>
+                            ${val.columnName} ${val.operator.op} #{val.value}
+                        </otherwise>
+                    </choose>
+
+                </foreach>
+            </where>
+        </if>
+        <if test="orders!=null and orders.size!=0">
+            order by
+            <foreach collection="orders"  item="val" separator=",">
+                <if test="val!=null">
+                    ${val}
+                </if>
+            </foreach>
+        </if>
+    </select>
+
+    <!-- 说明:统计条数
+        匹配条件:
+        @param queryBuilder 查询条件。如果没有则返回全表记录数
+        返回字段： 全部（如果有特殊构造的字段要添加字段说明） -->
+    <select id="count" resultType="long">
+        SELECT
+        count(*)
+        FROM jjly_cms_resource
+        <if test="queryBuilder!=null">
+            <where>
+                <foreach collection="queryBuilder.andList"  item="val" separator="and">
+
+                    <choose>
+                        <when test="val!=null and (val.operator.toString() == 'LIKE' or val.operator.toString()== 'NLIKE')">
+                            ${val.columnName} ${val.operator.op} "%"#{val.value}"%"
+                        </when>
+                        <otherwise>
+                            ${val.columnName} ${val.operator.op} #{val.value}
+                        </otherwise>
+                    </choose>
+                </foreach>
+            </where>
+        </if>
+    </select>
+</mapper>

@@ -33,6 +33,8 @@
 		<setting name="localCacheScope" value="SESSION" />
 		<setting name="jdbcTypeForNull" value="OTHER" />
 		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+		<!--将返回结果转化为驼峰-->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 	<typeAliases>
 		<package name="com.jjly.model"/>

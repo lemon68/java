@@ -183,7 +183,7 @@
 				fn(b)： 回调函数，当用户点击确认按钮时传递一个 true 参数，否则给它传递一个 false 参数。
     		 */
     		confirm:function(title, msg, fn){
-    			//confirm(title, msg, fn);
+				alert("ninhao");
     			 $("body").append('<div class="popup-delete"><div class="mask"><div class="delCusBox"><h2><font>删除客户</font><em class="myCancelBtn"></em></h2><p>您是否确认删除该客户信息</p><div class="btns"><span class="boxBtn myConfirmBtn">确认</span><span class="boxBtn1 myCancelBtn">取消</span></div></div></div>');
     			    
                  if($('.popup-delete').length>0)

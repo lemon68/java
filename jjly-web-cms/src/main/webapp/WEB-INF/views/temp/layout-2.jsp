@@ -1,47 +1,44 @@
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@include file="/common/taglibs.jsp"%>
 <div class="easyui-layout" data-options="fit:true">
-    <div data-options="region:'west',border:true,split:true," title="分类管理" style="width:150px; padding:5px;">
-        <ul id="wu-category-tree" class="easyui-tree"></ul>
-    </div>
-    <div data-options="region:'center',border:false">
-    	<!-- Begin of toolbar -->
-        <div id="wu-toolbar">
-            <div class="wu-toolbar-button">
-                <a href="#" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd()" plain="true">添加</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit()" plain="true">修改</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove()" plain="true">删除</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="cancel()" plain="true">取消</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload()" plain="true">刷新</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-print" onclick="openAdd()" plain="true">打印</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-help" onclick="openEdit()" plain="true">帮助</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-undo" onclick="remove()" plain="true">撤销</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-redo" onclick="cancel()" plain="true">重做</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-sum" onclick="reload()" plain="true">总计</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-back" onclick="reload()" plain="true">返回</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-tip" onclick="reload()" plain="true">提示</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="reload()" plain="true">保存</a>
-                <a href="#" class="easyui-linkbutton" iconCls="icon-cut" onclick="reload()" plain="true">剪切</a>
-            </div>
-            <div class="wu-toolbar-search">
-                <label>起始时间：</label><input class="easyui-datebox" style="width:100px">
-                <label>结束时间：</label><input class="easyui-datebox" style="width:100px">
-                <label>用户组：</label> 
-                <select class="easyui-combobox" panelHeight="auto" style="width:100px">
-                    <option value="0">选择用户组</option>
-                    <option value="1">黄钻</option>
-                    <option value="2">红钻</option>
-                    <option value="3">蓝钻</option>
-                </select>
-                <label>关键词：</label><input class="wu-text" style="width:100px">
-                <a href="#" class="easyui-linkbutton" iconCls="icon-search">开始检索</a>
-            </div>
+    <!-- Begin of toolbar -->
+    <div id="wu-toolbar-2">
+        <div class="wu-toolbar-button">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-add" onclick="openAdd()" plain="true">添加</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-edit" onclick="openEdit()" plain="true">修改</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" onclick="remove()" plain="true">删除</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="cancel()" plain="true">取消</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-reload" onclick="reload()" plain="true">刷新</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-print" onclick="openAdd()" plain="true">打印</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-help" onclick="openEdit()" plain="true">帮助</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-undo" onclick="remove()" plain="true">撤销</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-redo" onclick="cancel()" plain="true">重做</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-sum" onclick="reload()" plain="true">总计</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-back" onclick="reload()" plain="true">返回</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-tip" onclick="reload()" plain="true">提示</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="reload()" plain="true">保存</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-cut" onclick="reload()" plain="true">剪切</a>
         </div>
-        <!-- End of toolbar -->
-        <table id="wu-datagrid" toolbar="#wu-toolbar"></table>
+        <div class="wu-toolbar-search">
+            <label>起始时间：</label><input class="easyui-datebox" style="width:100px">
+            <label>结束时间：</label><input class="easyui-datebox" style="width:100px">
+            <label>用户组：</label> 
+            <select class="easyui-combobox" panelHeight="auto" style="width:100px">
+                <option value="0">选择用户组</option>
+                <option value="1">黄钻</option>
+                <option value="2">红钻</option>
+                <option value="3">蓝钻</option>
+            </select>
+            <label>关键词：</label><input class="wu-text" style="width:100px">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search">开始检索</a>
+        </div>
     </div>
+    <!-- End of toolbar -->
+    <table id="wu-datagrid-2" class="easyui-datagrid" toolbar="#wu-toolbar-2"></table>
 </div>
 <!-- Begin of easyui-dialog -->
-<div id="wu-dialog" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
-	<form id="wu-form" method="post">
+<div id="wu-dialog-2" class="easyui-dialog" data-options="closed:true,iconCls:'icon-save'" style="width:400px; padding:10px;">
+	<form id="wu-form-2" method="post">
         <table>
             <tr>
                 <td width="60" align="right">姓 名:</td>
@@ -65,25 +62,15 @@
 <!-- End of easyui-dialog -->
 <script type="text/javascript">
 	/**
-	* Name 载入菜单树
-	*/
-	$('#wu-category-tree').tree({
-		url:'views/temp/menu.php',
-		onClick:function(node){
-			alert(node.text);
-		}
-	});
-
-	/**
 	* Name 添加记录
 	*/
 	function add(){
-		$('#wu-form').form('submit', {
+		$('#wu-form-2').form('submit', {
 			url:'',
 			success:function(data){
 				if(data){
 					$.messager.alert('信息提示','提交成功！','info');
-					$('#wu-dialog').dialog('close');
+					$('#wu-dialog-2').dialog('close');
 				}
 				else
 				{
@@ -97,12 +84,12 @@
 	* Name 修改记录
 	*/
 	function edit(){
-		$('#wu-form').form('submit', {
+		$('#wu-form-2').form('submit', {
 			url:'',
 			success:function(data){
 				if(data){
 					$.messager.alert('信息提示','提交成功！','info');
-					$('#wu-dialog').dialog('close');
+					$('#wu-dialog-2').dialog('close');
 				}
 				else
 				{
@@ -118,7 +105,7 @@
 	function remove(){
 		$.messager.confirm('信息提示','确定要删除该记录？', function(result){
 			if(result){
-				var items = $('#wu-datagrid').datagrid('getSelections');
+				var items = $('#wu-datagrid-2').datagrid('getSelections');
 				var ids = [];
 				$(items).each(function(){
 					ids.push(this.productid);	
@@ -145,8 +132,8 @@
 	* Name 打开添加窗口
 	*/
 	function openAdd(){
-		$('#wu-form').form('clear');
-		$('#wu-dialog').dialog({
+		$('#wu-form-2').form('clear');
+		$('#wu-dialog-2').dialog({
 			closed: false,
 			modal:true,
             title: "添加信息",
@@ -158,7 +145,7 @@
                 text: '取消',
                 iconCls: 'icon-cancel',
                 handler: function () {
-                    $('#wu-dialog').dialog('close');                    
+                    $('#wu-dialog-2').dialog('close');                    
                 }
             }]
         });
@@ -168,23 +155,23 @@
 	* Name 打开修改窗口
 	*/
 	function openEdit(){
-		$('#wu-form').form('clear');
-		var item = $('#wu-datagrid').datagrid('getSelected');
+		$('#wu-form-2').form('clear');
+		var item = $('#wu-datagrid-2').datagrid('getSelected');
 		//alert(item.productid);return;
 		$.ajax({
 			url:'',
 			data:'',
 			success:function(data){
 				if(data){
-					$('#wu-dialog').dialog('close');	
+					$('#wu-dialog-2').dialog('close');	
 				}
 				else{
 					//绑定值
-					$('#wu-form').form('load', data)
+					$('#wu-form-2').form('load', data)
 				}
 			}	
 		});
-		$('#wu-dialog').dialog({
+		$('#wu-dialog-2').dialog({
 			closed: false,
 			modal:true,
             title: "修改信息",
@@ -196,7 +183,7 @@
                 text: '取消',
                 iconCls: 'icon-cancel',
                 handler: function () {
-                    $('#wu-dialog').dialog('close');                    
+                    $('#wu-dialog-2').dialog('close');                    
                 }
             }]
         });
@@ -235,7 +222,7 @@
 	/**
 	* Name 载入数据
 	*/
-	$('#wu-datagrid').datagrid({
+	$('#wu-datagrid-2').datagrid({
 		url:'views/temp/datagrid.php',
 		loadFilter:pagerFilter,		
 		rownumbers:true,

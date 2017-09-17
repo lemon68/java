@@ -28,9 +28,12 @@ public class QiNiuUtils {
 	
 	private String access_key = "jbXYflLZyKqK8fx1DyM8CD-QTRbDjo_7dsZGUC0O";
 	private String secret_key = "0x25Z__xBPdSqbttLFWfVzpyZpVhqVQnLBlniyey";
-	@Value("${upload.qiniu.bucketname}") private String bucketname;
-    @Value("${upload.qiniu.bucketnamefile}") private String bucketnamefile;
-    @Value("${upload.qiniu.hubname}") private String hubName;
+	@Value("${upload.qiniu.bucketname}")
+    private String bucketname;
+    @Value("${upload.qiniu.bucketnamefile}")
+    private String bucketnamefile;
+    @Value("${upload.qiniu.hubname}")
+    private String hubName;
 
 	Auth qiNiuAuth;
     Credentials credentials;

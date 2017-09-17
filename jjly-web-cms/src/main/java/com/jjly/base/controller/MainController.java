@@ -44,28 +44,29 @@ public class MainController {
     @RequestMapping("")
     public String main(HttpServletRequest request) {
         // 获取用户信息
-        CmsUser user = cmsUserClient.getByUserName(SpringSecurityUtils
-                .getCurrentUserName());
-        cmsUserClient.saveAndModify(user);
-        HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        String topResIdstr = request.getParameter("topResId");
-        if (StringUtils.isEmpty(topResIdstr)) {
-            NavResource firstTopNavResource = getCurrUserTopFirstNavResource(user
-                    .getId());
-            if (firstTopNavResource != null) {
-                request.setAttribute("topResId", firstTopNavResource.getId());
-                request.setAttribute("defLoadUrl",
-                        firstTopNavResource.getMenuUrl());
-            } else {
-                request.setAttribute("defLoadUrl", "");
-            }
-        } else {
-            request.setAttribute("topResId", topResIdstr);
-            CmsResource resource = cmsResourceClient
-                    .get(Long.parseLong(topResIdstr));
-            request.setAttribute("defLoadUrl", resource.getUrl());
-        }
+//        CmsUser user = cmsUserClient.getByUserName(SpringSecurityUtils
+//                .getCurrentUserName());
+//        cmsUserClient.saveAndModify(user);
+//        HttpSession session = request.getSession();
+//        session.setAttribute("user", user);
+//        String topResIdstr = request.getParameter("topResId");
+//        if (StringUtils.isEmpty(topResIdstr)) {
+//            NavResource firstTopNavResource = getCurrUserTopFirstNavResource(user
+//                    .getId());
+//            if (firstTopNavResource != null) {
+//                request.setAttribute("topResId", firstTopNavResource.getId());
+//                request.setAttribute("defLoadUrl",
+//                        firstTopNavResource.getMenuUrl());
+//            } else {
+//                request.setAttribute("defLoadUrl", "");
+//            }
+//        } else {
+//            request.setAttribute("topResId", topResIdstr);
+//            CmsResource resource = cmsResourceClient
+//                    .get(Long.parseLong(topResIdstr));
+//            request.setAttribute("defLoadUrl", resource.getUrl());
+//        }
+        List<CmsResource> cmsResourceList=cmsResourceClient.getResourcesByLevel(0);
         return "main";
     }
 
@@ -95,7 +96,7 @@ public class MainController {
      * </p>
      *
      * @return
-     * @author 黄乡南
+     * @author Steven
      */
     private NavResource getCurrUserTopFirstNavResource(
             Long userId) {
@@ -126,5 +127,17 @@ public class MainController {
         List<CmsResource> resources = cmsResourceClient.getResourcesByUser(user
                 .getId());
         return ResultUtils.returnSuccess("", resources);
+    }
+    @RequestMapping("layout1")
+    public String layout1(Model m){
+        return "temp/layout-1";
+    }
+    @RequestMapping("layout2")
+    public String layout2(Model m){
+        return "temp/layout-2";
+    }
+   @RequestMapping("layout3")
+    public String layout3(Model m){
+        return "temp/layout-3";
     }
 }

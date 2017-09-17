@@ -28,9 +28,8 @@ public class ResultUtils
 	 *  * @return  result
 	 * @auth Steven
 	 */
-	public static Result returnError(String msg)
-	{
-		return returnError(msg,ResultCodeEnum.Error.getCode());
+	public static Result returnError(String msg){
+		return   returnError(msg,ResultCodeEnum.Error.getCode());
 	}
 
 	/**
