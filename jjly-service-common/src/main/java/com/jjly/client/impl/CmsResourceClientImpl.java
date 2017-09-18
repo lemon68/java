@@ -8,6 +8,7 @@ import com.jjly.service.ICmsResourceService;
 import com.jjly.vo.NavResource;
 import org.jjly.framework.bean.MyBeanUtils;
 import org.jjly.framework.collection.MyCollectionUtils;
+import org.jjly.framework.mybatis.paginator.domain.Order;
 import org.jjly.framework.orm.OperatorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,7 +82,10 @@ public class CmsResourceClientImpl implements ICmsResourceClient {
     public List<CmsResource> getResourcesByLevel(Integer level){
         Map<String,Object> mapCondition= Maps.newHashMap();
         mapCondition.put(OperatorEnum.EQ.op("level"),level);
-        return cmsResourceService.findByCondition(mapCondition);
+        List<Order> orders=Lists.newArrayList();
+        Order order=new Order("sort",Order.Direction.ASC,null);
+        orders.add(order);
+        return cmsResourceService.findByCondition(mapCondition,orders);
     }
 
     @Override

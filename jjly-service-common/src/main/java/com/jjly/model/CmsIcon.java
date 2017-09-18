@@ -1,5 +1,6 @@
 package com.jjly.model;
 
+import org.apache.ibatis.type.Alias;
 import org.jjly.framework.orm.LongBaseEntity;
 
 /**
@@ -11,6 +12,7 @@ import org.jjly.framework.orm.LongBaseEntity;
  * @e-mail 47121494@qq.com
  * @date 2017/9/15 16:33
  */
+@Alias("cmsIcon")
 public class CmsIcon extends LongBaseEntity{
     private String name;
     private String iconType;
