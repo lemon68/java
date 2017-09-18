@@ -36,7 +36,7 @@ var uploader = Qiniu.uploader({
             var res =eval('('+info+')');
             var imgUrl = domain+res.key;
             console.log(imgUrl)
-            recharge.$set('payVoucherT',imgUrl)
+            // recharge.$set('payVoucherT',imgUrl)
             $("#showImg").attr( "src", imgUrl );
             $(".upPhone").css("display","block")
         },
