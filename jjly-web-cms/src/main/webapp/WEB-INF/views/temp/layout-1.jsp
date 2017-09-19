@@ -1,9 +1,9 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglibs.jsp" %>
 <div class="easyui-layout" data-options="fit:true">
-    <div data-options="region:'west',border:true,split:true," title="分类管理" style="width:150px; padding:5px;">
+    <%--<div data-options="region:'west',border:true,split:true," title="分类管理" style="width:150px; padding:5px;">
         <ul id="wu-category-tree" class="easyui-tree"/>
-    </div>
+    </div>--%>
     <div data-options="region:'center',border:false">
         <!-- Begin of toolbar -->
         <div id="wu-toolbar">
@@ -70,12 +70,12 @@
     /**
      * Name 载入菜单树
      */
-    $('#wu-category-tree').tree({
+    /*$('#wu-category-tree').tree({
         url: '${ctx}/temp/menu.php',
         onClick: function (node) {
             alert(node.text);
         }
-    });
+    });*/
 
     /**
      * Name 添加记录
@@ -236,7 +236,7 @@
      * Name 载入数据
      */
     $('#wu-datagrid').datagrid({
-        url: '${ctx}/temp/datagrid.php',
+        url: 'temp/datagrid.php',
         loadFilter: pagerFilter,
         rownumbers: true,
         singleSelect: false,

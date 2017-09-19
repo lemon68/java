@@ -28,7 +28,7 @@
                 <li iconCls="icon-chart-organisation">
                     <a href="javascript:void(0)"
                        data-icon="icon-chart-organisation"
-                       data-link="${ctx}/layout2"
+                       data-link="${ctx}/main/layout1"
                        iframe="0">
                         菜单导航
                     </a>
@@ -36,7 +36,7 @@
                 <li iconCls="icon-users">
                     <a href="javascript:void(0)"
                        data-icon="icon-users"
-                       data-link="${ctx}/layout3"
+                       data-link="${ctx}/main/layout2"
                        iframe="0">
                         用户管理
                     </a>
@@ -44,7 +44,7 @@
                 <li iconCls="icon-user-group">
                     <a href="javascript:void(0)"
                        data-icon="icon-user-group"
-                       data-link="${ctx}/layout3"
+                       data-link="${ctx}/main/layout2"
                        iframe="0">
                         角色管理
                     </a>
@@ -52,7 +52,7 @@
                 <li iconCls="icon-book">
                     <a href="javascript:void(0)"
                        data-icon="icon-book"
-                       data-link="${ctx}/layout3"
+                       data-link="${ctx}/main/layout2"
                        iframe="0">
                         数据字典
                     </a>
