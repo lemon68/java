@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jjly.dao.goods.IGoodsItemCateDao">
+
+    <!-- 一个vo对应一个sql标签 -->
+    <sql id="base_sql">
+        id,
+        name,
+        pid,
+        img,
+        is_recomend,
+        is_display,
+        sort
+    </sql>
+
+    <select id="getItemCateList" resultType="ItemCate">
+        SELECT
+          <include refid="base_sql"/>
+        FROM jjly_item_cate u
+    </select>
+
+
+</mapper>
